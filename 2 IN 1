@@ -1,0 +1,140 @@
+//********************************************************************
+//  MainBrett.java       Author: Laniakea
+//
+//  This is the temperature K-F-C convertor program
+//********************************************************************
+
+public class MainBrett
+{
+   //-----------------------------------------------------------------
+   //  Just initializes the Brett object.
+   //-----------------------------------------------------------------
+	public static void main (String[]args)
+	{
+		Brett b;
+		b = new Brett();
+
+
+
+	}
+}
+//----------------------------------------------------------------------------------------------//
+// New "file" //
+//----------------------------------------------------------------------------------------------//
+//*******************************************************************
+//Brett.java                                  Author: Laniakea
+//            Where the magic really happens
+//*******************************************************************
+import java.util.Scanner;                    //Imports the Scanner utility from the main Java library
+
+public class Brett
+{
+Scanner scan = new Scanner(System.in); //Declares and initiallizies scanner utility  and is positioned in class thus is globally applied in this entire class
+public Brett()    //Constructor - calls method here and is the "part" directly connected to MainBrett
+{
+
+  getMeasure();           // Is getMeasure() method/routine, but is being called here, follows flow of control
+int choice = scan.nextInt();
+if (choice == 1)
+  {
+  fromFahrenheit();
+  }
+  else if (choice == 2)
+  {           //private is a visibility type and says it can only be used in the class of it's initial origin aka only in Brett, not MainBrett or elsewheregetCelsius();                                         /*public is a visibility type and says it's visible */
+fromCelsius();
+  }
+else
+{
+fromKelvin();
+}
+
+
+
+}
+  public void getMeasure()
+{
+   //Declares and initiallizies Scanner
+
+    System.out.println("Welcome to Laniakea's KFC temperature convertor Alpha 0.0.1!");
+
+           System.out.println(" ");
+
+    System.out.println("Please select the following temperature" + " measurement to start from: 1 - Fahrenheit, 2 - Celsius, 3- Kelvin");
+
+
+
+
+}
+
+
+public void fromFahrenheit()
+{
+
+    System.out.println("Your choice" + " Is Fahrenheit.");
+
+  System.out.println("Please enter the temperature F you want to convert: ");
+  double fahrenheitTemp = scan.nextDouble(); //Double because it's going to be a decimal, and why double and not float is because double has more accuracy
+  System.out.println("Converting to Celsius...");
+  int base_Factor = 32;
+ 	double celsiusTemp;
+ 	celsiusTemp = (fahrenheitTemp-base_Factor)*5/9;
+  System.out.println("Temperature in Celsius is: " + celsiusTemp + "°C");
+  System.out.println("    ");   //blank spaced line to seperate
+  System.out.println("Converting to Kelvin...");
+  double k_Factor2 = 459.67;
+  double kelvinTemp;
+  kelvinTemp = (fahrenheitTemp+k_Factor2)*5/9;
+  System.out.println("Temperature in Kelvin is: " + kelvinTemp + "°K");
+
+}
+
+public void fromCelsius()
+{
+
+  System.out.println("Your choice" + " Is Celsius.");
+
+System.out.println("Please enter the temperature C you want to convert: ");
+double celsiusTemp = scan.nextDouble();
+System.out.println("Converting to Fahrenheit...");
+double base_Factor3A = 1.8;
+int base_Factor3B = 32;
+double fahrenTemp;
+fahrenTemp = (celsiusTemp*base_Factor3A)+base_Factor3B;
+System.out.println("Temperature in Fahrenheit is: " + fahrenTemp + "°F");
+System.out.println("    ");
+System.out.println("Converting to Kelvin...");
+double kelvTemp;
+double base_Factor4 = 273.15;
+kelvTemp = celsiusTemp+base_Factor4;
+System.out.println("Temperature in Kelvin is: " + kelvTemp + "°K");
+
+
+}
+
+public void fromKelvin()
+{
+
+ System.out.println("Your choice" + " Is Kelvin.");
+
+ System.out.println("Please enter the temperature K you want to convert: ");
+double kelvnTemp = scan.nextDouble();
+System.out.println("Converting to Fahrenheit...");
+double base_Factor5A = 1.8;
+double base_Factor5B = 459.67;
+double fahrenhTemp;
+fahrenhTemp = (kelvnTemp*base_Factor5A)-base_Factor5B;
+System.out.println("Temperature in Fahrenheit is: " + fahrenhTemp + "°F");
+System.out.println("    ");
+System.out.println("Converting to Celsius...");
+double celtTemp;
+double base_Factor6 = 273.15;
+celtTemp = kelvnTemp-base_Factor6;
+System.out.println("Temperature in Celsius is: " + celtTemp + "°C");
+
+
+
+}
+
+
+
+}
